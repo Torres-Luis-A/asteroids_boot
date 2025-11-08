@@ -2,20 +2,20 @@ import pygame
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from logger import log_state
 
-pygame.init()
-VERSION = pygame.version.ver
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
 def main():
-    i=0
-    while i<1:
+    pygame.init()
+    VERSION = pygame.version.ver
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    clock = pygame.time.Clock()
+    dt = clock.tick(60) / 1000
+    while True:
         log_state()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
         pygame.display.flip()
-
-
+        clock.tick(60)
 if __name__ == "__main__":
     main()
